@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+<html>
+    <head>
+        <title>Dormserv: Create a Profile</title>
+    </head>
+
+    <body>
+
+<div id="upper_nav">
+                        <nav class="navbar navbar-default" role="navigation">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <a class="navbar-brand" href="/"><div class="imagewrapper2"><img src="{% static "cal/images/ds.png" %}" alt="dormserv"/></div></a>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                      
+                    </ul>
+                  </div><!-- /.navbar-collapse -->
+                </nav>
+            </div>
+
+        <div id="wrap">
+
+        <h1>Sign Up For Dormserv</h1>
+        <h2>Your account is free: order when you want.</h2>
+
+        <h3><div id="error">There was an error verifying your account. Please try again.</div></h3>
+
+        <form id="user_form" method="post" action="register/"
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {% for field in user_form.visible_fields %}
+            <div class="form-group" placeholder="{{ field.help_text }}">
+
+                <p class="form-error">{{ field.errors }}</p>
+
+            </div>
+
+            {% endfor %}
+
+
+            {% for error in user_form.non_field_errors %}
+                <p class="form-error">{{ error }}</p>
+
+            {% endfor %}
+            <tr><th><label for="id_username"></label></th><td><input id="id_username" maxlength="30" name="username" class="form-control" placeholder="Email" type="text" /><br /><span class="helptext"></span></td></tr>
+            <tr><th><label for="id_first_name"></label></th><td><input id="id_first_name" maxlength="30" name="first_name" class="form-control" placeholder="First Name" type="text" /><br /><span class="helptext"></span></td></tr>
+            <tr><th><label for="id_last_name"></label></th><td><input id="id_last_name" maxlength="30" name="last_name" class="form-control" placeholder="Last Name"type="text" /><br /><span class="helptext"></span></td></tr>
+            <tr><th><label for="id_password"></label></th><td><input id="id_password" name="password" class="form-control" placeholder="Password" type="password" /><br /><span class="helptext"></span></td></tr>
+            <tr><th><label for="id_password2"></label></th><td><input id="id_password2" name="password2" class="form-control" placeholder="Confirm Password" type="password" /><br /><span class="helptext"></span></td></tr>
+            <tr><th><label for="id_phone"></label></th><td><input id="id_phone" name="phone" type="text" class="form-control" placeholder="Phone" maxlength="15"/><br /><span class="helptext"></span></td></tr><br>
+
+            <tr><th><label for="id_dorm"></label></th><td><select id="id_dorm" name="dorm">
+            <option value="   " selected="selected">Choose a quad...</option>
+            <!--<option value="CEN">Central Campus</option>-->
+            <!--<option value="ALS">Alsplaugh</option>-->
+            <!--<option value="AYC">Aycock</option>-->
+            <!--<option value="BAS">Bassett</option>-->
+            <!--<option value="BTW">Bell Tower</option>-->
+            <!--<option value="BLA">Blackwell</option>-->
+            <!--<option value="BRO">Brown</option>-->
+            <option value="CRA">Craven</option>
+            <option value="CRO">Crowell</option>
+            <!--<option value="EDE">Edens</option>-->
+            <!--<option value="EPW">Epworth</option>-->
+            <option value="FEW">Few</option>
+            <!--<option value="GAD">Gilbert-Addoms</option>-->
+            <!--<option value="GIL">Giles</option>-->
+            <!--<option value="JAR">Jarvis</option>-->
+            <!--<option value="KEO">Keohane</option>-->
+            <option value="KIL">Kilgo</option>
+            <!--<option value="PEG">Pegram</option>-->
+            <!--<option value="RAN">Randolph</option>-->
+            <!--<option value="SOU">Southgate</option>-->
+            <!--<option value="WAN">Wannamaker</option>-->
+            <!--<option value="WIL">Wilson</option>-->
+            </select><br /><span class="helptext"></span></td></tr>
+            <th><label for="id_section"></label></th><td><input id="id_section" name="section" type="text" class="form-control" placeholder="Section" maxlength="10"/><br /><span class="helptext"></span></td></tr>
+            <th><label for="id_room"></label></th><td><input id="id_room" name="room" type="text" class="form-control" placeholder="Room" maxlength="10"/><br /><span class="helptext"></span></td>
+             <br>
+
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Create My Profile" />
+
+        </form>
+        {% endif %}<br>
+        <p>*More quads coming soon!</p>
+    </div>
+    </body>
+</html>

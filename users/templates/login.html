@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+
+
+<html>
+    <head>
+    <title>Dormserv</title>
+    </head>
+
+    <body>
+    <div id="wrap">
+
+        <div id="nav">
+            <a href="/">
+            <div class="imagewrapper">
+                <img src="{% static "users/images/12.png" %}" alt="dormserv"/>
+            </div>
+            </a>
+            <center>
+
+        </div>
+        
+        <div id="main">
+                <h1>Welcome to Dormserv.</h1>
+                <h3>The future of breakfast.</h3><br>
+
+
+        
+        {% csrf_token %}
+        {% if user.is_authenticated%}
+        <h1> You're already signed in!</h1>
+        {% else %}
+        <form id="login_form" method="post" action="/login/">
+            {% csrf_token %}
+            <input type="text" name="username" value="" class="form-control" placeholder="Email" size="50" />
+            <br /><br>
+            <input type="password" name="password" value="" class="form-control" placeholder="Password" size="50" />
+            <br />
+            <br>
+            <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Log In" />
+
+        </form>
+        <br>
+        <form action="/register/">
+            <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Sign Up For Dormserv" />
+        </form>
+        
+        {% endif %}
+
+        </div>
+
+        <div id="video">
+
+        <iframe src="//fast.wistia.net/embed/iframe/tw4vhew8bs" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="504" height="284"></iframe>     </div>
+
+    </div>
+    
+    <div id="footer">
+            <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li>&emsp; &emsp; &#183 &emsp; &emsp;</li>
+                <li><a href="privacy.html">PRIVACY</a></li>
+                <li>&emsp; &emsp; &#183 &emsp; &emsp;</li>
+                <li><a href="contact.html">CONTACT US</a></li>
+            </ul>
+    </div>
+    </body>
+
+
+</html>

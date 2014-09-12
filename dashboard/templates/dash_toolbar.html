@@ -1,0 +1,19 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+<div id="wrap">
+	<div class="btn-group btn-group-justified">
+	  <div class="btn-group">
+	    <a href="/dashboard/data"><button type="button" class="btn btn-default">Data</button></a>
+	  </div>
+	  <div class="btn-group">
+	    <a href="/dashboard/order_management"><button type="button" class="btn btn-default">Order Management</button></a>
+	  </div>
+	  <div class="btn-group">
+		<a href="/dashboard/drivers"><button type="button" class="btn btn-default">Driver Management</button></a>
+	  </div>
+	  <div class="btn-group">
+	    <a href="/dashboard/finances"><button type="button" class="btn btn-default">Finances</button></a>
+	  </div>
+</div><br>

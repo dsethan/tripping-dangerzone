@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cal/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'cal/css/bootstrap.css' %}"/>
+
+
+<html>
+    <head>
+        <title>Mobile Confirmation</title>
+    </head>
+    {% include 'confirm_head.html' %}
+
+    <body>
+    	<div id="wrap">
+    		<h1>Just one more step!</h1>
+    		<p>A confirmation number was just sent to your phone number. Please type it into the box below, and your account will be ready!</p>
+
+    		<form name="input" action="/verify_user_text/" method="POST">
+    			{% csrf_token %}
+    			<input type="hidden" name="str_sec" value="{{ str_sec }}">
+    			<input type="hidden" name="profile" value="{{ profile }}">
+    			<input type="hidden" name="user" value="{{ user }}">
+				<input type="text" name="secret_code">
+				<input type="submit" value="Submit">
+			</form>
+    	</div>
+
+   	</body>
+
+</html>

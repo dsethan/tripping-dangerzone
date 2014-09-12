@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+<html>
+    <head>
+        <title>Dormserv: Create a Profile</title>
+    </head>
+
+    <body>
+    {% include 'pre_login_head.html' %}
+
+    <div id="wrap">
+    {% if registered %}
+        <h1>You're already registered!</h1>
+    {% else %}
+        <h1>Sign Up For Dormserv</h1>
+            <form id="user_form" method="post" action="register/" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                {% for field in user_form.visible_fields %}
+                <div class="form-group" placeholder="{{ field.help_text }}">
+                    <p class="form-error">{{ field.errors }}</p>
+                </div>
+                {% endfor %}
+
+                {% for error in user_form.non_field_errors %}
+                    <p class="form-error">{{ error }}</p>
+                {% endfor %}
+
+                <tr><th><label for="id_username"></label></th><td><input id="id_username" maxlength="30" name="username" class="form-control" placeholder="Email" type="text" /><br /><span class="helptext"></span></td></tr>
+                <tr><th><label for="id_first_name"></label></th><td><input id="id_first_name" maxlength="30" name="first_name" class="form-control" placeholder="First Name" type="text" /><br /><span class="helptext"></span></td></tr>
+                <tr><th><label for="id_last_name"></label></th><td><input id="id_last_name" maxlength="30" name="last_name" class="form-control" placeholder="Last Name"type="text" /><br /><span class="helptext"></span></td></tr>
+                <tr><th><label for="id_password"></label></th><td><input id="id_password" name="password" class="form-control" placeholder="Password" type="password" /><br /><span class="helptext"></span></td></tr>
+                <tr><th><label for="id_password2"></label></th><td><input id="id_password2" name="password2" class="form-control" placeholder="Confirm Password" type="password" /><br /><span class="helptext"></span></td></tr>
+                <tr><th><label for="id_phone"></label></th><td><input id="id_phone" name="phone" type="text" class="form-control" placeholder="Phone" maxlength="15"/><br /><span class="helptext"></span></td></tr>
+                <tr><th><label for="id_address"></label></th><td><input id="address" name="address" type="text" class="form-control" placeholder="Address" maxlength="100"/><br /><span class="helptext"></span></td></tr>
+                <tr><th><label for="id_city"></label></th><td><input id="city" name="city" type="text" class="form-control" placeholder="City" maxlength="100"/><br /><span class="helptext"></span></td></tr><br>
+                <tr><th><label for="id_state"></label></th><td><select id="id_state" name="state">
+                <option value="NC">North Carolina</option>
+                </select><br /><span class="helptext"></span></td></tr><br>
+                <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Create My Profile" />
+            </form>
+        {% endif %}
+    </div>
+    </body>
+</html>

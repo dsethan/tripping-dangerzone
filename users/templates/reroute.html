@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cal/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'cal/css/bootstrap.css' %}"/>
+
+
+<html>
+    <head>
+        <title>Dormserv</title>
+    </head>
+    {% include 'head.html' %}
+
+    <body>
+    	<div id="wrap">
+    		<h1>Just one more step, {{ user.first_name }}</h1>
+    		<h2>On conf acct pg</h2>
+    		<p>A confirmation number was just sent to your phone number, {{ profile.phone }}. Please type the confirmation number in the box below, and your account will be ready!</p>
+
+    		<form name="input" action="127.0.0.1:800/verify_user_text/" method="POST">
+    			{% csrf_token %}
+				<input type="text" name="secret_code">
+				<input type="submit" value="Submit">
+			</form>
+    	</div>
+
+   	</body>
+
+</html>

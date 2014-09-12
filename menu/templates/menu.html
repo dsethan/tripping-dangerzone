@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+<html>
+    <head>
+        <title>{{user.first_name}}'s Account</title>
+    </head>
+
+    {% include 'head.html' %}
+    
+    <div id="wrap">
+    	<div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+            <span class="sr-only">50% Complete</span>
+          </div>
+        </div>
+    <body>
+    	<h1>Menu</h1>
+    	<h3>Window: {{ entry.start_time }}</h3>
+    	<table border='1' cellspacing='2' cellpadding='1'>
+    	<center>
+	    	{% for item in items %}
+	    	<td>
+	    	<center>
+		    	<br>
+		    	<img src="{% static "users/images/128egg.png" %}" alt="dormserv"/><br><br>
+		    	<form role="form" method="post" action="add_item">
+		    		 {% csrf_token %}
+		    		<input type="hidden" name="entry_id" value="{{ entry_id }}">
+		    		<input type="hidden" name="item.id" value="{{ item.id }}">
+			    	{{ item.name }}<br>
+			    	<!--Quantity:
+			    	<input type="text" name="qty" value="0" />!-->
+			    	<input type="submit" value="Add to order" />
+		    	</form>
+		    	{% endfor %}
+    		</center>
+    		</td>
+
+    	</center>
+    	</table>
+        <form role="form" method="post" action="/checkout/process_order">
+            {% csrf_token %}
+            <input type="hidden" name="entry_id" value="{{ entry_id }}">
+            <input type="submit" value="Checkout" />
+        </form>
+    </body>
+	</div>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<!--<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>-->
+
+<html>
+    <head>
+        <title>{{user.first_name}}'s Dashboard</title>
+    </head>
+
+    <body>
+    {% include 'head.html' %}
+
+    <div id="wrap">
+    	{% include 'dash_toolbar.html' %}
+		<h2>Today's Statistics</h2>
+
+		<b>Number of orders: {{ number_orders }}<br>
+		Total Revenues: {{ total_revenues }}</b>
+
+		<form role="form" method="post" action="populate_menu">
+            {% csrf_token %}
+            <center><input type="submit" name="submit" id="submit" value="Populate Menu" /></center>
+        </form>
+		<form role="form" method="post" action="depopulate_menu">
+            {% csrf_token %}
+            <center><input type="submit" name="submit" id="submit" value="Depopulate Menu" /></center>
+        </form>
+        <form role="form" method="post" action="remove_all_dispatches">
+            {% csrf_token %}
+            <center><input type="submit" name="submit" id="submit" value="Remove All Dispatches" /></center>
+        </form>
+
+    </div>
+
+	</body>
+</html>

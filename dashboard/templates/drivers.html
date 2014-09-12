@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<!--<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>-->
+
+<html>
+    <head>
+        <title>{{user.first_name}}'s Dashboard</title>
+    </head>
+
+    <body>
+    {% include 'head.html' %}
+
+    <div id="wrap">
+    	{% include 'dash_toolbar.html' %}
+		<h2>Driver Management</h2>
+
+        <div id="driver_button_wrap">
+            <a href="assign_times"><button type="button" class="btn btn-primary btn-lg btn-block">Assign Driver Times</button></a><br>
+            <a href="add_driver"><button type="button" class="btn btn-primary btn-lg btn-block">Add New Drivers</button></a><br>
+            <a href="generate_driver_report"><button type="button" class="btn btn-primary btn-lg btn-block">Generate Driver Report</button>
+        </div>
+
+        
+
+    </div>
+
+	</body>
+
+</html>

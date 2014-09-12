@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'cal/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'cal/css/bootstrap.css' %}"/>
+
+
+<html>
+    <head>
+        <title>Log In</title>
+    </head>
+    {% include 'head.html' %}
+
+    <body>
+    	<div id="wrap">
+    		<h1>Welcome to Dormserv!</h1>
+    		<h2>Login to your account to get started.</h2>
+            <form id="login_form" method="post" action="/login/">
+            {% csrf_token %}
+            <input type="text" name="username" value="" class="form-control" placeholder="Email" size="50" />
+            <br /><br>
+            <input type="password" name="password" value="" class="form-control" placeholder="Password" size="50" />
+            <br />
+            <br>
+            <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Log In" />
+        </form>
+    	</div>
+
+   	</body>
+
+</html> 
