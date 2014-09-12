@@ -1,12 +1,12 @@
 """
-Django settings for dormserv project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.6/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.6/ref/settings/
-"""
+    Django settings for dormserv project.
+    
+    For more information on this file, see
+    https://docs.djangoproject.com/en/1.6/topics/settings/
+    
+    For the full list of settings and their values, see
+    https://docs.djangoproject.com/en/1.6/ref/settings/
+    """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -17,10 +17,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qqg6=3oq0@s%mr5$medv+*&b27v_8f9cc-_+%h-fef$oow(ny+'
+SECRET_KEY = '_z5+$$ei65o%t2)^-)c4fhat2k9--ossllfyj&s8z9j3iya(so'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -30,52 +30,57 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'cal',
-    'drivers',
-    'item',
-    'orders',
-    'pkg',
-    'restaurants',
-    'users',
-    'account',
-    'menu',
-    'checkout',
-    'process',
-    'dispatch',
-    'dashboard',
-    'staffing',
-    'kitchen',
-
-)
+                  'django.contrib.admin',
+                  'django.contrib.auth',
+                  'django.contrib.contenttypes',
+                  'django.contrib.sessions',
+                  'django.contrib.messages',
+                  'django.contrib.staticfiles',
+                  'cal',
+                  'drivers',
+                  'item',
+                  'orders',
+                  'pkg',
+                  'restaurants',
+                  'users',
+                  'account',
+                  'menu',
+                  'checkout',
+                  'process',
+                  'dispatch',
+                  'dashboard',
+                  'staffing',
+                  'kitchen',
+                  
+                  )
 
 MIDDLEWARE_CLASSES = (
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+                      'django.contrib.sessions.middleware.SessionMiddleware',
+                      'django.middleware.common.CommonMiddleware',
+                      'django.middleware.csrf.CsrfViewMiddleware',
+                      'django.contrib.auth.middleware.AuthenticationMiddleware',
+                      'django.contrib.messages.middleware.MessageMiddleware',
+                      'django.middleware.clickjacking.XFrameOptionsMiddleware',
+                      )
 
 ROOT_URLCONF = 'dormserv.urls'
 
 WSGI_APPLICATION = 'dormserv.wsgi.application'
+
+STRIPE_SECRET = "YOUR-SECRET-API-KEY"
+STRIPE_PUBLISHABLE = "YOUR-PUBLISHABLE-API-KEY"
 
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 }
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -95,25 +100,26 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-# Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES = {'default': dj_database_url.config(default='postgres://localhost')} 
-# Honor the 'X-Forwarded-Proto' header for request.is_secure()
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-
-# Allow all host headers
-ALLOWED_HOSTS = ['*']
-
-# Static asset configuration
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
+'''
+    # Parse database configuration from $DATABASE_URL
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure()
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    
+    
+    # Allow all host headers
+    ALLOWED_HOSTS = ['*']
+    
+    # Static asset configuration
+    import os
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATIC_URL = '/static/'
+    
+    STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-)
-
-DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    )
+    
+    DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    '''
