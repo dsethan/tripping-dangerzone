@@ -1,0 +1,15 @@
+Django==1.7
+certifi==14.05.14
+dj-database-url==0.3.0
+dj-static==0.0.6
+django-toolbelt==0.0.1
+googlemaps==1.0.2
+gunicorn==0.16.1
+httplib2==0.9
+psycopg2==2.5.4
+requests==2.4.0
+six==1.7.3
+static3==0.5.1
+stripe==1.19.0
+twilio==3.6.7
+wsgiref==0.1.2
