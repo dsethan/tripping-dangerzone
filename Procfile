@@ -1,2 +1,1 @@
-web: gunicorn dormserv.wsgi --log-file -
-
+web: gunicorn dormserv.wsgi
