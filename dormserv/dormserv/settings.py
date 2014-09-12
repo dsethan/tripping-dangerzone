@@ -17,10 +17,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_z5+$$ei65o%t2)^-)c4fhat2k9--ossllfyj&s8z9j3iya(so'
+SECRET_KEY = 'qqg6=3oq0@s%mr5$medv+*&b27v_8f9cc-_+%h-fef$oow(ny+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -67,20 +67,15 @@ ROOT_URLCONF = 'dormserv.urls'
 
 WSGI_APPLICATION = 'dormserv.wsgi.application'
 
-STRIPE_SECRET = "YOUR-SECRET-API-KEY"
-STRIPE_PUBLISHABLE = "YOUR-PUBLISHABLE-API-KEY"
-
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+  }
 }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -100,7 +95,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-'''
+
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES = {'default': dj_database_url.config(default='postgres://localhost')} 
@@ -122,4 +117,3 @@ STATICFILES_DIRS = (
 )
 
 DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
-'''
