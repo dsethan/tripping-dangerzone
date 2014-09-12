@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<!--<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>-->
+
+<html>
+    <head>
+        <title>{{user.first_name}}'s Dashboard</title>
+    </head>
+
+    <body>
+    {% include 'head.html' %}
+
+    <div id="wrap">
+    	{% include 'dash_toolbar.html' %}
+		<h2>Assign Times</h2>
+
+        <form action="/dashboard/drivers/assign_times/process_driver_add/" method="POST" id="driver-form">
+        {% csrf_token %}
+        {% for driver in drivers %}
+        Driver: {{ driver.user.first_name }} {{ driver.user.last_name }}<br>
+        <table class="table">
+        <tr>
+            {% for day in days %}
+            <td><input type="checkbox" name="{{day.isoformat}}:{{driver.id}}" value="{{day}}:{{driver.id}}">{{ day }}<br></td>
+            {% endfor %}
+        </tr>
+        </table><br>
+        {% endfor %}
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+
+        
+
+    </div>
+
+	</body>
+
+</html>

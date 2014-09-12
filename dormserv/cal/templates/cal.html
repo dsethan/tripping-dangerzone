@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+<html>
+    <head>
+        <title>Dormserv Calendar</title>
+    </head>
+
+    {% include 'head.html' %}
+    
+    <div id="wrap">
+
+    <body>
+        {% csrf_token %}
+
+        {% if user.is_authenticated %}
+        {% else %}
+        <a href="/register/">Register Here</a><br />
+        <a href="/login/">Login</a><br />
+        {% endif %}
+
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+            <span class="sr-only">25% Complete</span>
+          </div>
+        </div>
+
+
+        <div id = "cal_head">
+            <div id = "cal_head_top">
+                <h1>Morning, {{ user.first_name }}.</h1>
+            </div>
+            <div id = "cal_head_bottom">
+            <h2>When do you want your breakfast?</h2>
+            </div>
+        </div>
+
+        <table border='1' cellspacing='2' cellpadding='1'>
+            <tr>
+                <td><center><p><h5><b>Monday, {{ dates.0 }}</b></h5></p></center></td>
+                <td><center><p><h5><b>Tuesday, {{ dates.1 }}</b></h5></p></center></td>
+                <td><center><p><h5><b>Wednesday, {{ dates.2 }}</b></h5></p></center></td>
+                <td><center><p><h5><b>Thursday, {{ dates.3 }}</b></h5></p></center></td>
+                <td><center><p><h5><b>&nbspFriday, {{ dates.4 }}&nbsp</b></h5></p></center></td>
+                <td><center><p><h5><b>Saturday, {{ dates.5 }}</b></h5></p></center></td>
+                <td><center><p><h5><b>Sunday, {{ dates.6 }}</b></h5></p></center></td>
+            </tr>
+            <tr>
+            <tr>
+                <td>
+                    {% for deliv in mon %}
+                    <br>
+                        <div id = "deliv_slot">
+                        {% if deliv.is_active %}
+                        <form role="form" method="post" action="/menu/">
+                        <input type="hidden" name="entry_id" value="{{ deliv.id }}">
+                        {% csrf_token %}
+                        <center><input type="submit" name="submit" id="submit" value="{{ deliv.display_time }} - {{ deliv.twenty_over }}" /></center>
+                        </form>
+                        {% else %}
+                        <center>{{ deliv.display_time }} - {{ deliv.twenty_over }}</center>
+                        {% endif %}
+                        </div>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for deliv in tues %}
+                    <br>
+                        <div id = "deliv_slot">
+                        {% if deliv.is_active %}
+                        <form role="form" method="post" action="/menu/">
+                        {% csrf_token %}
+                        <input type="hidden" name="entry_id" value="{{ deliv.id }}">
+                        <center><input type="submit" name="submit" id="submit" value="{{ deliv.display_time }} - {{ deliv.twenty_over }}" /></center>
+                        </form>                        {% else %}
+                        <center>{{ deliv.display_time }} - {{ deliv.twenty_over }}</center>
+                        {% endif %}
+                        </div>
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for deliv in wed %}
+                    <br>
+                        <div id = "deliv_slot">
+                        {% if deliv.is_active %}
+                        <form role="form" method="post" action="/menu/">
+                        {% csrf_token %}
+                        <input type="hidden" name="entry_id" value="{{ deliv.id }}">
+                        <center><input type="submit" name="submit" id="submit" value="{{ deliv.display_time }} - {{ deliv.twenty_over }}" /></center>
+                        </form>                        {% else %}
+                        <center>{{ deliv.display_time }} - {{ deliv.twenty_over }}</center>
+                        {% endif %}
+                        </div>
+                    {% endfor %}
+                </td>
+               <td>
+                    {% for deliv in thurs %}
+                    <br>
+                        <div id = "deliv_slot">
+                        {% if deliv.is_active %}
+                        <form role="form" method="post" action="/menu/">
+                        {% csrf_token %}
+                        <input type="hidden" name="entry_id" value="{{ deliv.id }}">
+                        <center><input type="submit" name="submit" id="submit" value="{{ deliv.display_time }} - {{ deliv.twenty_over }}" /></center>
+                        </form>                        {% else %}
+                        <center>{{ deliv.display_time }} - {{ deliv.twenty_over }}</center>
+                        {% endif %}
+                        </div>
+                    {% endfor %}
+                </td>
+               <td>
+                    {% for deliv in fri %}
+                    <br>
+                        <div id = "deliv_slot">
+                        {% if deliv.is_active %}
+                        <form role="form" method="post" action="/menu/">
+                        {% csrf_token %}
+                        <input type="hidden" name="entry_id" value="{{ deliv.id }}">
+                        <center><input type="submit" name="submit" id="submit" value="{{ deliv.display_time }} - {{ deliv.twenty_over }}" /></center>
+                        </form>                        {% else %}
+                        <center>{{ deliv.display_time }} - {{ deliv.twenty_over }}</center>
+                        {% endif %}
+                        </div>
+                    {% endfor %}
+                </td>
+               <td>
+                    <center>Closed</center>
+                </td>
+               <td>
+                    <center>Closed</center>
+                </td>
+        </table>
+    </div>
+    </body>
+</html>

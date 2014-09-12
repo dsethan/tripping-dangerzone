@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+<html>
+    <head>
+        <title>{{user.first_name}}'s Account</title>
+    </head>
+
+    {% include 'account_head.html' %}
+    
+    <div id="wrap">
+
+    <body>
+        {% csrf_token %}
+
+        {% if user.is_authenticated %}
+        {% else %}
+        <a href="/register/">Register Here</a><br />
+        <a href="/login/">Login</a><br />
+        {% endif %}
+
+        <h1>{{ user.first_name }}'s Account</h1>
+        <h3>Orders</h3>
+        <h4>Pending Orders</h4>
+        <h4>Order History</h4>
+        <h3>Payment</h3>
+        <h3>Address</h3>
+
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+<html>
+    <head>
+        <title>Kitchen Order Management</title>
+    </head>
+
+    <body>
+    {% include 'head.html' %}
+
+    <div id="wrap">
+
+    	<h1>Kitchen Dashboard</h1>
+
+    	{% for dispatch in dispatches.keys %}
+    		{% for key, item in dispatches.items %}
+    			{% if key == dispatch %}
+    				<h2>Dispatch {{dispatch.id}}</h2>
+    				<h3>Time: {{dispatch.start_time}}, Date: {{dispatch.date}}</h3>
+    				<h3>Driver: {{dispatch.driver}}</h3>
+    				{% for i in item %}
+    					<h4>Order: {{ i.order.id }}</h4>
+    					<h4>Customer: {{ i.order.user_profile.user.first_name }} {{ i.order.user_profile.user.last_name }}</h4>
+
+ 
+
+    				{% endfor %}
+
+
+
+    			{% endif %}
+
+    		{% endfor %}
+
+    	{% endfor %}
+
+    </div>
+</body>
+</html>

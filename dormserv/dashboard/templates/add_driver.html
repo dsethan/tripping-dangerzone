@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<!--<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>-->
+
+<html>
+    <head>
+        <title>{{user.first_name}}'s Dashboard</title>
+    </head>
+
+    <body>
+    {% include 'head.html' %}
+
+    <div id="wrap">
+    	{% include 'dash_toolbar.html' %}
+        <h1>Add Driver</h1>
+
+        {{ error }}
+        <form method="post" action="add_driver/" enctype="multipart/form-data">
+            {% csrf_token %}
+
+                <tr><th></th><td><input id="id_username" maxlength="30" name="username" class="form-control" placeholder="Email" type="text" /><br /></td></tr>
+                <tr><th></th><td><input id="id_first_name" maxlength="30" name="first_name" class="form-control" placeholder="First Name" type="text" /><br /></td></tr>
+                <tr><th></th><td><input id="id_last_name" maxlength="30" name="last_name" class="form-control" placeholder="Last Name"type="text" /><br /></td></tr>
+                <tr><th></th><td><input id="id_password" name="password" class="form-control" placeholder="Password" type="password" /><br /></td></tr>
+                <tr><th></th><td><input id="id_password2" name="password2" class="form-control" placeholder="Confirm Password" type="password" /><br /></td></tr>
+                <tr><th></th><td><select id="id_restaurant" name="restaurant">
+                {% for restaurant in restaurants %}
+                <option value="{{ restaurant.id }}">{{ restaurant.name }}</option>
+                {% endfor %}
+                </select><br /></td></tr><br>
+                <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Create My Profile" />
+
+
+        </form>
+
+    </div>
+
+	</body>
+</html>
