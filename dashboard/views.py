@@ -86,7 +86,7 @@ def order_management(request):
 		dates = []
 
 		# Get all dates in with associated orders
-		for order in Orders.objects.all():
+		for order in Order.objects.all():
 			dates.append(order.date_in)
 
 		# Place dates after monday into dates
