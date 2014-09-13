@@ -414,7 +414,11 @@ def add_driver(request):
 
 def data(request):
 	context = RequestContext(request)
-	return HttpResponse("data")
+
+
+	return render_to_response("data.html",
+		{},
+		context)
 
 def financials(request):
 	context = RequestContext(request)
