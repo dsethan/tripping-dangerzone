@@ -84,6 +84,10 @@ def order_management(request):
 		# List of all dates
 		dates = []
 
+		# Get all dates in with associated orders
+		for order in Orders.objects.all():
+			dates.append(order.date_in)
+
 		# Place dates after monday into dates
 		for i in range(0,7):
 			dates.append(mon_date + datetime.timedelta(days=i))
@@ -150,7 +154,7 @@ def order_management(request):
 		gmap_code = generate_gmap_code(lat_lngs)
 
 		return render_to_response("order_management.html",
-			{'today':today, 'lat_lngs':lat_lngs, 'gmap_code':gmap_code, 'table_info':table_info},
+			{'today':today, 'lat_lngs':lat_lngs, 'gmap_code':gmap_code, 'table_info':table_info, 'dates':dates},
 			context)
 	return HttpResponse("No Permission")
 
