@@ -17,6 +17,7 @@ from restaurants.models import Restaurant
 from googlemaps import GoogleMaps
 from users.models import User, UserProfile
 from drivers.models import DriverProfile
+from orders.models import Order
 from users.forms import UserForm
 from time import sleep
 import random
