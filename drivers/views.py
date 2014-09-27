@@ -36,28 +36,15 @@ def driver_login(request):
 
                 if is_driver(cur_usr):
 	                login(request, user)
-
-	               	# cur_user_profile = UserProfile.get(id=user.id)
-
-	                profile = get_associated_profile(user)
-	                profile.logins = profile.logins + 1
-	                profile.clicks = profile.clicks + 1
-	                profile.save()
-                    return redirect('/driver_dash', user=user)
-
+                    return redirect('/driver_dash', user=cur_usr)
                 else:
                     return HttpResponse("Sorry, you are not a driver.")
-
-
-
-
             else:
                 return HttpResponse("Your account is disabled.")
         else:
             # Bad login details were provided. So we can't log the user in.
             #print "Invalid login details: {0}, {1}".format(username, password)
             return render_to_response('login_error.html', {}, context)
-
     # The request is not a HTTP POST, so display the login form.
     # This scenario would most likely be a HTTP GET.
     else:
