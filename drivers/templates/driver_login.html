@@ -33,7 +33,7 @@
         {% if user.is_authenticated%}
         <h1> You're already signed in!</h1>
         {% else %}
-        <form id="login_form" method="post" action="/driver_login/">
+        <form id="login_form" method="post" action="/drivers/">
             {% csrf_token %}
             <input type="text" name="username" value="" class="form-control" placeholder="Email" size="50" />
             <br /><br>
