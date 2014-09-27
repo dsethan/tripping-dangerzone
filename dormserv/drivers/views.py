@@ -9,7 +9,7 @@ from users.models import User, UserProfile
 
 
 
-def user_login(request):
+def driver_login(request):
     # Like before, obtain the context for the user's request.
     context = RequestContext(request)
     cur_usr = request.user
@@ -74,9 +74,6 @@ def is_driver(user):
         if driver.user == user:
             return True
     return False
-
-
-
 
 def driver_dash(request):
 	context = RequestContext(request)
