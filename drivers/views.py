@@ -41,7 +41,7 @@ def driver_login(request):
 	                profile.logins = profile.logins + 1
 	                profile.clicks = profile.clicks + 1
 	                profile.save()
-					return redirect('/driver_dash', user=user)
+					#return redirect('/driver_dash', user=user)
 
 				else:
 					return HttpResponse("Sorry, you are not a driver.")
