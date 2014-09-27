@@ -7,8 +7,6 @@ from drivers.models import DriverProfile
 from users.models import User, UserProfile
 # Create your views here.
 
-
-
 def driver_login(request):
     # Like before, obtain the context for the user's request.
     context = RequestContext(request)
