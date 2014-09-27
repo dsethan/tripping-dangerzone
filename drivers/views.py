@@ -7,6 +7,8 @@ from drivers.models import DriverProfile
 from users.models import User, UserProfile
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
+from django.shortcuts import render_to_response, redirect
+
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
