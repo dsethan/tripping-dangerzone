@@ -47,7 +47,6 @@ def driver_login(request):
 
                 else:
                     return HttpResponse("Sorry, you are not a driver.")
-            
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your account is disabled.")
