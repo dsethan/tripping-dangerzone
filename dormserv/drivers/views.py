@@ -45,11 +45,10 @@ def driver_login(request):
 	                profile.logins = profile.logins + 1
 	                profile.clicks = profile.clicks + 1
 	                profile.save()
-
                 return redirect('/driver_dash', user=user)
 
                 else:
-               		return HttpResponse("Sorry, a driver profile is required to access this site.")
+                    return HttpResponse("Sorry, a driver profile is required to access this site.")
 
             else:
                 # An inactive account was used - no logging in!
