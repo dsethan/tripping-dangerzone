@@ -48,7 +48,7 @@ def driver_login(request):
 
                 return redirect('/driver_dash', user=user)
 
-               else:
+                else:
                		return HttpResponse("Sorry, a driver profile is required to access this site.")
 
             else:
