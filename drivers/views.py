@@ -19,7 +19,7 @@ def driver_login(request):
 
     if cur_usr.is_active:
         if is_driver(cur_usr):
-            return redirect('/drivers', user=cur_usr)
+            return redirect('driver_dash', user=cur_usr)
 
     # If the request is a HTTP POST, try to pull out the relevant information.
     if request.method == 'POST':
