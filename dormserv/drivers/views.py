@@ -37,19 +37,17 @@ def driver_login(request):
                 if is_driver(cur_usr):
 	                login(request, user)
 
-	                if is_driver(user):
-	                    return redirect('/drivers', user=user)
 	               	# cur_user_profile = UserProfile.get(id=user.id)
 
 	                profile = get_associated_profile(user)
 	                profile.logins = profile.logins + 1
 	                profile.clicks = profile.clicks + 1
 	                profile.save()
-                return redirect('/driver_dash', user=user)
+                    return redirect('/driver_dash', user=user)
 
                 else:
-                    return HttpResponse("Sorry, a driver profile is required to access this site.")
-
+                    return HttpResponse("Sorry, you are not a driver.")
+            
             else:
                 # An inactive account was used - no logging in!
                 return HttpResponse("Your account is disabled.")
