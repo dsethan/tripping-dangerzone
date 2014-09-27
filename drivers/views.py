@@ -38,7 +38,7 @@ def driver_login(request):
                 # If the account is valid and active, we can log the user in.
                 # We'll send the user back to the homepage.
 
-                if is_driver(cur_usr):
+                if is_driver(user):
                     login(request, user)
                     return redirect('/driver_dash', user=cur_usr)
                 else:
