@@ -8,7 +8,6 @@ from users.models import User, UserProfile
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response, redirect
-
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -42,7 +41,7 @@ def driver_login(request):
 
                 if is_driver(user):
                     login(request, user)
-                    return redirect('/driver_dash', user=cur_usr)
+                    return redirect('driver_dash', user=cur_usr)
                 else:
                     return HttpResponse("Sorry, you are not a driver.")
             else:
