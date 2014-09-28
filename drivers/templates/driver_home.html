@@ -18,6 +18,7 @@
         <h2>Your Current Dispatches:</h2>
 
         {% for dispatch in dispatches %}
+        {% if dispatch.date == today %}
           <table class="table">
           <tr>
             <td><b>{{ dispatch.date }}, {{ dispatch.start_time }}, {{ dispatch.length }} min</b></td>
@@ -25,14 +26,20 @@
           {% for key, item in dispatch_orders.items %}
             {% if key == dispatch %}
               {% for i in item %}
+              {% if i.order.order_success == False %}
                 {{i.order.user_profile.address}}<br>
                 Estimated Time: {{i.order.user_profile.get_directions.0}}<br>
                 Distance: {{i.order.user_profile.get_directions.1}}<br><br>
+                <form method="post" action="/order_update/">
+                <input type="hidden" name="order_id" value="{{i.order.id}}">
+                <input type="submit" class="btn btn-primary btn-lg" name="submit" value="Delivered" />
+                </form>
+              {% endif %}
               {% endfor %}
             {% endif %}
           {% endfor %}
           </table>
-
+        {% endif %}
         {% endfor %}
 
     </div>

@@ -58,6 +58,24 @@ def driver_login(request):
         return render_to_response('driver_login.html', {}, context)
 
 
+def order_update(request):
+    context = RequestContext(request)
+
+    # Make sure it is a HTTP POST request
+    if request.method == 'POST':
+
+        # Get the id of the order submitted
+        order_id = int(request.POST.get('order_id'))
+
+        # Change delivered field
+        order_to_update = Order.objects.get(id=order_id)
+        order_to_update.order_success = True
+
+        return driver_dash(request)
+
+    return driver_dash(request)
+
+
 def is_driver(user):
     for driver in DriverProfile.objects.all():
         if driver.user == user:
@@ -90,6 +108,9 @@ def driver_dash(request):
 				if dispatch not in dispatch_orders.keys():
 					dispatch_orders[dispatch] = []
 				dispatch_orders[dispatch].append(do)
+    
+
+    today = datetime.date.today()
 
 
 	return render_to_response("driver_home.html", 
@@ -97,7 +118,8 @@ def driver_dash(request):
 		'first':first,
 		'last':last,
 		'dispatches':dispatches,
-		'dispatch_orders':dispatch_orders}, 
+		'dispatch_orders':dispatch_orders,
+        'today':today}, 
 		context)
 
 

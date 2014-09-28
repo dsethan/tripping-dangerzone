@@ -41,6 +41,7 @@ class Order(models.Model):
 	def __unicode__(self):
 		return self.status
 
+
 class OrderItem(models.Model):
 	item = models.ForeignKey(Item)
 	order = models.ForeignKey(Order)
