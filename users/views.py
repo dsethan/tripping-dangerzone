@@ -210,7 +210,7 @@ def user_logout(request):
     context = RequestContext(request)
     user = request.user
 
-    if is_driver(user) or is_superuser(user) or is_staff(user):
+    if is_driver(user) or user.is_superuser or user.is_staff:
 
         logout(request)
         return HttpResponseRedirect('/')
