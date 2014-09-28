@@ -101,6 +101,7 @@ def driver_dash(request):
 		if dispatch.driver == driver:
 			dispatches.append(dispatch)
 
+
 	# Get driver's name to passing through to the template
 	first = driver.user.first_name
 	last = driver.user.last_name
