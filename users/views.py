@@ -59,9 +59,10 @@ def register(request):
             profile.user = user
             print profile.address
 
-
+            
             # Now we save the UserProfile model instance.
             profile.save()
+            '''
             r0 = randint(0, 9)
             r1 = randint(0, 9)
             r2 = randint(0, 9)
@@ -72,9 +73,11 @@ def register(request):
             auth_token = "616085bee1e2c14db70339a86bfa9dda"
             client = TwilioRestClient(account_sid, auth_token)
             message = client.sms.messages.create(body=user.first_name + ", thanks for signing up for Dormserv! Your code is " + str_sec, to= profile.phone, from_="+19146185355") # Replace with your Twilio number
+            '''           
+
             registered = True
-            return render_to_response('confirm_account.html',
-                {'profile': profile.id, 'user':profile.user.id, 'str_sec':str_sec},
+            return render_to_response('login_form.html',
+                {},
                 context)
 
         # Invalid form or forms - mistakes or something else?
@@ -175,7 +178,7 @@ def is_driver(user):
     return False
 
 
-
+'''
 def verify_user_text(request):
     context = RequestContext(request)
     if request.method == 'POST':
@@ -190,6 +193,7 @@ def verify_user_text(request):
             User.objects.get(id=user).delete()
             return render_to_response("register_2.html", {}, context)
     return HttpResponse("error....")
+'''
 
 def get_associated_profile(user):
 	for up in UserProfile.objects.all():
@@ -211,7 +215,7 @@ def user_logout(request):
         logout(request)
         return HttpResponseRedirect('/')
 
-    
+
     profile = get_associated_profile(user)
     profile.clicks = profile.clicks + 1
     profile.save()
