@@ -103,6 +103,7 @@ def driver_dash(request):
 	last = driver.user.last_name
     today = datetime.date.today()
 
+
 	dispatch_orders = {}
 	for do in DispatchOrder.objects.all():
 		for dispatch in dispatches:
