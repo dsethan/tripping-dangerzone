@@ -8,7 +8,6 @@ urlpatterns = patterns('',
 	url(r'^logout/$', views.user_logout, name='logout'), # ADD NEW PATTERN!
 	url(r'^register/thanks/$', views.thanks, name='thanks'), # ADD NEW PATTERN!
 	url(r'^register/welcome/$', views.thanks, name='thanks'), # ADD NEW PATTERN!
-	#url(r'^verify_user_text/', views.verify_user_text, name='verify_user_text'),
 	url(r'^faq', views.faq, name='faq'),
     url(r'^contact', views.contact, name='contact'),
     url(r'^privacy', views.privacy, name='privacy'),
