@@ -206,12 +206,12 @@ def user_logout(request):
     context = RequestContext(request)
     user = request.user
 
-    if is_driver(user) or is_superuser(user):
+    if is_driver(user) or is_superuser(user) or is_staff(user):
 
         logout(request)
         return HttpResponseRedirect('/')
 
-
+    
     profile = get_associated_profile(user)
     profile.clicks = profile.clicks + 1
     profile.save()
