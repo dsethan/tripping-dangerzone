@@ -2,7 +2,7 @@ from django.shortcuts import render
 from dispatch.models import Dispatch, DispatchOrder
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, redirect
 import django.contrib.auth
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
