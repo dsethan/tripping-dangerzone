@@ -1,0 +1,244 @@
+body,
+html {
+margin:0;
+padding:0;
+color:#000;
+}
+
+h1, h2 {
+	font-family: Avenir;
+	font-weight: normal;
+}
+
+
+h2, h3 {
+  color: #9A9A9A;
+}
+
+p {
+  font-size: 20px;
+}
+
+#down {
+  padding-top: 3px;
+}
+#error {
+color: #A81919;
+}
+
+#division {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#coming_soon{
+  color: #333333;
+  margin-bottom: -20px;
+}
+
+#feb{
+    margin-top: 40px;
+  color: #9A9A9A;
+
+}
+
+td {
+  margin-top: 3px;
+  width: 500px;
+}
+
+table {
+  padding-bottom: 5px
+}
+
+a:link {color:#01467d;}      /* unvisited link */
+a:visited {color:#01467d;}  /* visited link */
+a:hover {color:#01467d;}  /* mouse over link */
+a:active {color:#01467d	;}  /* selected link */
+
+#menu_category{
+  font-family: Avenir;
+  font-size: 30px;
+  font-color: #305080;
+  margin-top: 5px;
+}
+
+#menu_submit_btn{
+  margin-top: 200px;
+}
+#item_listing{
+  font-family: Avenir;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+#item_price {
+  position: relative;
+}
+#wrap {
+width:1000px;
+margin:0 auto;
+padding-bottom:90px;
+/*background:#99c;*/
+}
+
+#qa_group{
+  font-family: Avenir;
+  font-size: 15px;
+
+}
+
+#question{
+  font-weight: bold;
+  color: #00296c;
+  padding-bottom: 3px;
+}
+
+#answer{
+  padding-bottom: 6px;
+}
+#col_wrap{
+width: 1000px;
+margin: 0 auto;
+}
+
+#col_1{
+float: left;
+width: 480px;
+padding-top: 20px;
+padding-right: 20px;
+}
+
+#col_2{
+float: right;
+width: 480px;
+padding-top: 56px;
+padding-left: 20px;
+}
+
+#col_3{
+float: center;
+width: 1000px;
+padding-top: 20px;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+#main {
+float:right;
+width:500px;
+padding-top: 53px;
+padding-left: 50px;
+/*background:#9c9;*/
+}
+
+
+#video {
+margin-top: 68px;
+padding-right: 30px;
+float:left;
+width:500px;
+/*background:#c9c;*/
+}
+
+#footer {
+color: #01467d;
+   position:fixed;
+   bottom:0;
+   width:100%;
+   height:40px;   /* Height of the footer */
+   background:#ffffff;
+   text-align: center;
+}
+
+#footer ul {
+	list-style: none;
+	font-family: "Avenir-light"
+}
+
+#footer ul li {
+	display: inline;
+}
+
+#upper_nav {
+
+}
+
+#cal_head {
+  margin-top: 20px;
+  /*color: #0aaea4;*/
+  margin-bottom: 15px;
+}
+
+#deliv_slot {
+  margin-top: -10px;
+  font-family: Avenir;
+
+}
+#cal_head_bottom {
+  color: #4f83d0;
+}
+#cal_head_top {
+  color: #305080;
+  margin-bottom: 5px;
+}
+
+#submit {
+  color: #2A6496;
+  background: #ffffff;
+  border: none;
+}
+
+#menu_col {
+  border: ;
+}
+.imagewrapper {
+width: 285px; /* or whatever you want */
+padding-top: 0px;
+margin:0 auto;
+line-height: 0px; /* or whatever you want, should match height */
+text-align: center;
+}
+.imagewrapper > img {
+  max-width: 90%;
+  width: auto; /* For IE8 */
+}
+.navbar-nav {
+  font-family: Avenir;
+  font-size: 14px;
+}
+
+.imagewrapper2 {
+width: 215px; /* or whatever you want */
+margin:0 auto;
+line-height: 0px; /* or whatever you want, should match height */
+}
+.imagewrapper2 > img {
+  max-width: 100%;
+  width: auto; /* For IE8 */
+}
+
+.navbar-right {
+  padding-right: 30px;
+}
+
+
+#map-canvas {
+  margin-top:4px;
+  padding-right:30px;
+  float:left;
+  width:500px;
+  height: 500px;
+}
+
+#driver_button_wrap {
+  margin-top:4px;
+  padding-right:30px;
+  float:left;
+  width:260px;
+  height: 500px;
+}
+
+select { border: 1.5px solid #CCC }
+
+
