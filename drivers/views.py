@@ -9,7 +9,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.shortcuts import render_to_response, redirect
 from django.contrib.auth.decorators import login_required
-
+import datetime
+from datetime import date, time
 # Create your views here.
 
 def driver_login(request):
@@ -100,8 +101,6 @@ def driver_dash(request):
 	# Get driver's name to passing through to the template
 	first = driver.user.first_name
 	last = driver.user.last_name
-
-    # Get today's date
     today = datetime.date.today()
 
 	dispatch_orders = {}
