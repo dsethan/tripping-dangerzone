@@ -41,7 +41,7 @@ def driver_login(request):
 
                 if is_driver(user):
                     login(request, user)
-                    return redirect('driver_dash', user=cur_usr)
+                    return redirect('driver_dash')
                 else:
                     return HttpResponse("Sorry, you are not a driver.")
             else:
