@@ -110,7 +110,7 @@ def driver_dash(request):
 			if do.dispatch == dispatch:
 				if dispatch not in dispatch_orders.keys():
 					dispatch_orders[dispatch] = []
-				dispatch_orders[dispatch].append(do)
+                dispatch_orders[dispatch].append(do)
 
 	return render_to_response("driver_home.html", 
 		{'driver':driver,
