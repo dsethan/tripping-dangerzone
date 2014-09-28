@@ -87,7 +87,7 @@ def driver_dash(request):
 	context = RequestContext(request)
 
     # Get date
-    today = datetime.date.today()
+	today = datetime.date.today()
 	# Get associated DriverProfile for the current user.
 	user = request.user
 	driver = get_driver(user)
