@@ -101,6 +101,9 @@ def driver_dash(request):
 	first = driver.user.first_name
 	last = driver.user.last_name
 
+    # Get today's date
+    today = datetime.date.today()
+
 	dispatch_orders = {}
 	for do in DispatchOrder.objects.all():
 		for dispatch in dispatches:
@@ -108,10 +111,6 @@ def driver_dash(request):
 				if dispatch not in dispatch_orders.keys():
 					dispatch_orders[dispatch] = []
 				dispatch_orders[dispatch].append(do)
-    
-
-    today = datetime.date.today()
-
 
 	return render_to_response("driver_home.html", 
 		{'driver':driver,
