@@ -93,14 +93,10 @@ def driver_dash(request):
 	# Initialize a list of all dispatches for the current driver
 	dispatches = []
 
-    # Get today's date
-    today = datetime.date.today()
-
 	# Get all dispatches associated with the driver that is logged in.
 	for dispatch in Dispatch.objects.all():
 		if dispatch.driver == driver:
 			dispatches.append(dispatch)
-
 
 	# Get driver's name to passing through to the template
 	first = driver.user.first_name
