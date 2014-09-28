@@ -69,7 +69,7 @@ def kitchen_login(request):
         return render_to_response('kitchen_login.html', {}, context)
 
 
-def kitchen(request):
+def kitchen_dash(request):
 	context = RequestContext(request)
 	user = request.user
 
