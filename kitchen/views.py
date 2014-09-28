@@ -28,7 +28,7 @@ def kitchen(request):
 	user = request.user
 
 	if user.is_staff:
-		today = datetime.date.today() - datetime.timedelta(days=1)
+		today = datetime.date.today() #- datetime.timedelta(days=1)
 		dispatches = {}
 
 
@@ -43,10 +43,16 @@ def kitchen(request):
 
 				current_list.append(order)
 
+		orderitem = []
+
+		for item in OrderItem.objects.all():
+			if item.order.entry.date == today:
+				orderitem.append(item)
 
 		return render_to_response(
 			'kitchen.html',
-			{'dispatches':dispatches},
+			{'dispatches':dispatches,
+			'orderitem':orderitem},
 			context)
 
 

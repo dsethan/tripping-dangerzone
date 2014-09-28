@@ -25,8 +25,10 @@
     				{% for i in item %}
     					<h4>Order: {{ i.order.id }}</h4>
     					<h4>Customer: {{ i.order.user_profile.user.first_name }} {{ i.order.user_profile.user.last_name }}</h4>
-
- 
+                        {% for oi in orderitem %}
+                            {% if oi.order == i.order %}
+                            <h4>Item: {{ item.name }}</h4>
+                        {% endfor %}
 
     				{% endfor %}
 
