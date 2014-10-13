@@ -100,7 +100,6 @@ def kitchen_dash(request):
 			{'dispatches':dispatches,
 			'orderitem':orderitem},
 			context)
-		h
 	return HttpResponse("No permission")
 
 
