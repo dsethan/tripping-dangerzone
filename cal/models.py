@@ -55,11 +55,12 @@ class Entry(models.Model):
 			return True
 		return False
 
+
 	def is_active(self):
 		#if self.date.strftime("%Y:%m:%d") == datetime.now().strftime("%Y:%m:%d"):
 		#	if int(datetime.now().strftime("%H")) >= 7:
 		#		return False
-		if (datetime.datetime.now().isocalendar()[1] == self.date.isocalendar()[1]) and (datetime.datetime.now().isocalendar()[2] == self.date.isocalendar()[2]) and int(self.start_time.strftime("%I")) > 4:
+		if (datetime.datetime.now().isocalendar()[1] == self.date.isocalendar()[1]) and (datetime.datetime.now().isocalendar()[2] == self.date.isocalendar()[2]) and int(self.start_time.strftime("%H")) > 6:
 			return False
 
 		if self.deliveries_available > 0:
