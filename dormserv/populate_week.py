@@ -6,26 +6,13 @@ from datetime import date, time, timedelta
 from restaurants.models import Restaurant
 
 def populate_week():
-	# Get today's date
-	today = datetime.date.today()
 
-	# Current week will be this week unless it is Friday, Saturday, or Sunday
-	current_week = datetime.date.today().isocalendar()[1]
-	mon_date = today - datetime.timedelta(days=today.weekday())
 
-	if datetime.date.today().isocalendar()[2] == 5 or datetime.date.today().isocalendar()[2] == 6 or datetime.date.today().isocalendar()[2] == 7:
-		current_week = datetime.date.today().isocalendar()[1] + 1
-		mon_date = today + datetime.timedelta(days=-today.weekday(), weeks=1)
-
-	# Get a list of all days of the week
+	dates = [13, 14, 15, 16, 17, 20, 21, 22, 23, 24, 27, 28]
 	days = []
-
-	# And populate it (make 0-5 if weekdays only)
-	for i in range(0,7):
-		to_add = mon_date + datetime.timedelta(days=i)
-		days.append(to_add)
-
-	# Add and save entries
+	for date in dates:
+		d = datetime.date(2014, 10, date)
+		days.append(d)
 
 	restaurant = restaurant.objects.get(id=0)
 
