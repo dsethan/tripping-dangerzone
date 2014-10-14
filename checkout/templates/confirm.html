@@ -62,17 +62,23 @@
 
   <h2> What you ordered: </h2>
 
-  <table>
+  <table border='1'>
+    <tr>
+      <td>Item</td>
+      <td>Quantity</td>
+      <td>Item Price</td>
+    </tr>
   {% for item in order_items %}
     <tr>
-      <td>Item: {{ item.item.name }}</td>
-      <td>Quantity: {{ item.quantity }}</td>
-      <td>Item Price: {{ item.item.view_order_total_in_usd }}</td>
+      <td>{{ item.item.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.item.view_order_total_in_usd }}</td>
     </tr>
   {% endfor %}
   </table>
+  <br>
   Total Order: {{ total_price }}
-
+  <br>
   <form action="process/" method="POST" id="payment-form">
     {% csrf_token %}
     <span class="payment-errors"></span>
