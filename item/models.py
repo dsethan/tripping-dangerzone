@@ -19,7 +19,6 @@ class Item(models.Model):
 	available = models.BooleanField(default=False)
 
 	def format_price_usd(self):
-		print "hi"
 		if len(self.price) == 2:
 			return "$" + "0." + str(self.price)
 		if len(self.price) > 2:
@@ -27,6 +26,12 @@ class Item(models.Model):
 			price_string = str(self.price)
 			print "$" + price_string[0:len(price_string)-2] + "." + price_string[len(price_string)-2:len(price_string)]
 			return "$" + price_string[0:len(price_string)-2] + "." + price_string[len(price_string)-2:len(price_string)]
+
+	def view_order_total_in_usd(self):
+		self_str = str(self.price)
+		cents = self_str[-2:]
+		dollars = self_str[:-2]
+		return "$" + dollars + "." + cents
 
 		return "issue"
 	def __unicode__(self):
