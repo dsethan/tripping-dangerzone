@@ -26,7 +26,7 @@
 	    	<td>
 	    	<center>
 		    	<br>
-		    	<img src="{% static "users/images/128egg.png" %}" alt="dormserv"/><br><br>
+		    	<img src="{% static 'users/images/128egg.png' %}" alt="dormserv"/><br><br>
 		    	<form role="form" method="post" action="add_item">
 		    		 {% csrf_token %}
 		    		<input type="hidden" name="entry_id" value="{{ entry_id }}">
