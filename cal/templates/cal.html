@@ -29,11 +29,11 @@
         </div>
 
 
-        <div id = "cal_head">
-            <div id = "cal_head_top">
+        <div id="cal_head">
+            <div id="cal_head_top">
                 <h1>Morning, {{ user.first_name }}.</h1>
             </div>
-            <div id = "cal_head_bottom">
+            <div id="cal_head_bottom">
             <h2>When do you want your breakfast?</h2>
             </div>
         </div>
@@ -53,7 +53,7 @@
                 <td>
                     {% for deliv in mon %}
                     <br>
-                        <div id = "deliv_slot">
+                        <div id="deliv_slot">
                         {% if deliv.is_active %}
                         <form role="form" method="post" action="/menu/">
                         <input type="hidden" name="entry_id" value="{{ deliv.id }}">
@@ -69,7 +69,7 @@
                 <td>
                     {% for deliv in tues %}
                     <br>
-                        <div id = "deliv_slot">
+                        <div id="deliv_slot">
                         {% if deliv.is_active %}
                         <form role="form" method="post" action="/menu/">
                         {% csrf_token %}
@@ -84,7 +84,7 @@
                 <td>
                     {% for deliv in wed %}
                     <br>
-                        <div id = "deliv_slot">
+                        <div id="deliv_slot">
                         {% if deliv.is_active %}
                         <form role="form" method="post" action="/menu/">
                         {% csrf_token %}
@@ -99,7 +99,7 @@
                <td>
                     {% for deliv in thurs %}
                     <br>
-                        <div id = "deliv_slot">
+                        <div id="deliv_slot">
                         {% if deliv.is_active %}
                         <form role="form" method="post" action="/menu/">
                         {% csrf_token %}
@@ -114,7 +114,7 @@
                <td>
                     {% for deliv in fri %}
                     <br>
-                        <div id = "deliv_slot">
+                        <div id="deliv_slot">
                         {% if deliv.is_active %}
                         <form role="form" method="post" action="/menu/">
                         {% csrf_token %}
