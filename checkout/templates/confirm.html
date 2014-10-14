@@ -57,7 +57,7 @@
 
 
 
-<div id="wrap" enctype="multipart/form-data">
+<div id="wrap">
   <h1>Charge</h1>
 
   <h2> What you ordered: </h2>
@@ -81,7 +81,8 @@
   Total Order: {{ total_price }}
   
   <br>
-  <form action="process/" method="POST" id="payment-form">
+
+  <form action="process/" method="POST" id="payment-form" enctype="multipart/form-data">
     {% csrf_token %}
     <span class="payment-errors"></span>
  
