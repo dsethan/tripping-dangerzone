@@ -40,8 +40,15 @@
     		</center>
     		</td>
 
-            <h2>Your Cart</h2>
-            <table border='1' cellspacing='2' cellpadding='1'>
+    	</center>
+        <form role="form" method="post" action="/checkout/process_order">
+            {% csrf_token %}
+            <input type="hidden" name="entry_id" value="{{ entry_id }}">
+            <input type="submit" value="Checkout" />
+        </form>
+
+        <h2>Your Cart</h2>
+            <table>
                 <tr>
                     <td>Item</td>
                     <td>Quantity</td>
@@ -53,12 +60,7 @@
                 </tr>
                 {% endfor %}
             </table>
-    	</center>
-        <form role="form" method="post" action="/checkout/process_order">
-            {% csrf_token %}
-            <input type="hidden" name="entry_id" value="{{ entry_id }}">
-            <input type="submit" value="Checkout" />
-        </form>
+
     </body>
 	</div>
 </html>
