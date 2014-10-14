@@ -40,6 +40,19 @@
     		</center>
     		</td>
 
+            <h2>Your Cart</h2>
+            <table>
+                <tr>
+                    <td>Quantity</td>
+                    <td>Item</td>
+                </tr>
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.item.name }}</td>
+                    <td>{{ item.qty }}</td>
+                </tr>
+                {% endfor %}
+            </table>
     	</center>
     	</table>
         <form role="form" method="post" action="/checkout/process_order">

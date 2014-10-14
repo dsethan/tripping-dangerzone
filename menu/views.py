@@ -23,10 +23,10 @@ def display_menu(request):
 		if not cart_exists(profile):
 			new_cart = Cart(profile=profile, total=0)
 			new_cart.save()
-		else:
-			get_cart(profile)
+			
+		cart = get_cart(profile)
 
-
+		cart_items = get_cart_items(cart)
 
 		items = []
 		for item in Item.objects.all():
@@ -34,12 +34,20 @@ def display_menu(request):
 
 		return render_to_response(
 			'menu.html',
-			{'entry':entry, 'entry_id':entry_id, 'user':user, 'profile':profile, 'items':items},
+			{'entry':entry, 'entry_id':entry_id, 'user':user, 'profile':profile, 'items':items, 'cart_items':cart_items},
 			context)
 	#Else statement for if not post
 	return HttpResponse("Menu!")
 
 
+
+def get_cart_items(cart):
+	cart_items = []
+	for item in CartItem.objects.all():
+		if item.cart == cart:
+			cart_items.append(item)
+
+	return cart_items
 
 
 def add_item(request):
