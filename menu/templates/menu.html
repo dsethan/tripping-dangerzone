@@ -39,17 +39,17 @@
 		    	{% endfor %}
     		</center>
     		</td>
-            {% in_cart.keys %}
+
             <h2>Your Cart</h2>
             <table>
                 <tr>
                     <td>Item</td>
                     <td>Quantity</td>
                 </tr>
-                {% for item in in_cart.keys %}
+                {% for key, value in in_cart.items %}
                 <tr>
-                    <td>{{ item }}<td>
-                    <td>{{ in_cart.item }}</td>
+                    <td>{{ key }}<td>
+                    <td>{{ value }}</td>
                 </tr>
                 {% endfor %}
             </table>
