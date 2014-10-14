@@ -43,18 +43,17 @@
             <h2>Your Cart</h2>
             <table>
                 <tr>
-                    <td>Quantity</td>
                     <td>Item</td>
+                    <td>Quantity</td>
                 </tr>
-                {% for item in cart_items %}
+                {% for item in in_cart.keys %}
                 <tr>
-                    <td>{{ item.item.name }}</td>
-                    <td>{{ item.qty }}</td>
+                    <td>{{ item }}<td>
+                    <td>{{ in_cart.item }}</td>
                 </tr>
                 {% endfor %}
             </table>
     	</center>
-    	</table>
         <form role="form" method="post" action="/checkout/process_order">
             {% csrf_token %}
             <input type="hidden" name="entry_id" value="{{ entry_id }}">

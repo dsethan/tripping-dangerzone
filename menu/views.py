@@ -28,13 +28,27 @@ def display_menu(request):
 
 		cart_items = get_cart_items(cart)
 
+		all_items = Item.objects.all()
+
+		in_cart = {}
+		for item in all_items:
+			for o in cart_items:
+				if o.item == item:
+					if item not in in_cart.keys():
+						in_cart[item] = 1
+					else:
+						num = in_cart[item]
+						to_replace = num + 1
+						in_cart[item] = to_replace
+
+
 		items = []
 		for item in Item.objects.all():
 			items.append(item)
 
 		return render_to_response(
 			'menu.html',
-			{'entry':entry, 'entry_id':entry_id, 'user':user, 'profile':profile, 'items':items, 'cart_items':cart_items},
+			{'entry':entry, 'entry_id':entry_id, 'user':user, 'profile':profile, 'items':items, 'in_cart':in_cart},
 			context)
 	#Else statement for if not post
 	return HttpResponse("Menu!")
