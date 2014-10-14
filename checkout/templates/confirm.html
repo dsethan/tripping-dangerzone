@@ -53,7 +53,8 @@
   </script>
 </head>
 <body>
-  {% include 'head.html' %}
+
+{% include 'head.html' %}
 
 
 
@@ -80,7 +81,7 @@
   <br>
   Total Order: {{ total_price_display }}
   
-  <br><br><br>
+  <br><br>
 
   <form action="process/" method="POST" id="payment-form">
     {% csrf_token %}
