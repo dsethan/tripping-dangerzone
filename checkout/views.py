@@ -42,7 +42,7 @@ def process_order(request):
 	new_order.save()
 
 	total_price = new_order.view_order_total_in_usd()
-	
+
 	order_dict = {}
 
 	for item in items_to_package:
@@ -117,7 +117,10 @@ def process(request):
 			new_customer_profile = CustomerProfile(profile=profile, customer_id=customer.id)
 			new_customer_profile.save()
 
-		return HttpResponse("Successful charge")
+		return render_to_response(
+			'successful_charge.html',
+			{},
+			context)
 
 
 	return HttpResponse("Something went wrong")

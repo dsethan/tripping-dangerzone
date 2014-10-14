@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/dormserv.css' %}"/>
+<link rel="stylesheet" type="text/css" href="{% static 'users/css/bootstrap.css' %}"/>
+
+<html>
+    <head>
+        <title>{{user.first_name}}'s Account</title>
+    </head>
+
+    {% include 'head.html' %}
+    
+    <div id="wrap">
+    	<div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+            <span class="sr-only">100% Complete</span>
+          </div>
+        </div>
+    <body>
+  
+
+    <h1>Charge Successful!</h1>
+    <h2>Thanks for using Dormserv</h2>
+
+    <h3>Want to place another order?</h3>
+
+    <a href="cal">
+    <button>Go to Calendar</button>
+    </a>
+
+    </div>
+
+    </body>
+</html>
