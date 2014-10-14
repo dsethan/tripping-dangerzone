@@ -41,6 +41,8 @@ def process_order(request):
 
 	new_order.save()
 
+	total_price = new_order.view_order_total_in_usd()
+	
 	order_dict = {}
 
 	for item in items_to_package:

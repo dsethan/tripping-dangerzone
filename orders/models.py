@@ -41,6 +41,12 @@ class Order(models.Model):
 	def __unicode__(self):
 		return self.status
 
+	def view_order_total_in_usd(self):
+		self_str = str(self.total)
+		cents = self_str[-2:]
+		dollars = self_str[:-2]
+		return "$" + dollars + "." + cents
+
 
 class OrderItem(models.Model):
 	item = models.ForeignKey(Item)
