@@ -76,8 +76,10 @@
     </tr>
   {% endfor %}
   </table>
+
   <br>
   Total Order: {{ total_price }}
+  
   <br>
   <form action="process/" method="POST" id="payment-form">
     {% csrf_token %}
