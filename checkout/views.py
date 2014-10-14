@@ -66,10 +66,15 @@ def process_order(request):
 	cart_id = cart.id
 	#print cart.id
 
-	total_price = new_order.view_order_total_in_usd()
+	total_price_display = new_order.view_order_total_in_usd()
 
 
-	return render_to_response("confirm.html", {'total_price':total_price, 'user':user, 'profile':profile, 'order_items':order_items, 'cart_id':cart_id }, context)
+	return render_to_response("confirm.html", {'total_price_display':total_price_display, 
+		'total_price':total_price, 
+		'user':user, 
+		'profile':profile, 
+		'order_items':order_items, 
+		'cart_id':cart_id }, context)
 
 
 def process(request):
